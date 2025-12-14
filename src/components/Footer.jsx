@@ -49,7 +49,7 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2">
                 <Mail size={16} className="text-blue-500" />
-                <span>support@hypercast.com</span>
+                <span>support@hypercast.store</span>
               </li>
               <li>
                 <p>Available 24/7 for support via Email and Telegram.</p>

@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   // The email address you verified in Resend (e.g., support@hypercast.com)
-  const SENDER_EMAIL = 'support@hypercast.com'; 
+  const SENDER_EMAIL = 'support@hypercast.store'; 
   // If your domain isn't verified yet, you can test using: 'onboarding@resend.dev'
   // But that ONLY sends to the email you used to sign up for Resend.
 
@@ -50,7 +50,7 @@ export default async function handler(req, res) {
     // Replace 'your-personal-email@gmail.com' with where you want to receive alerts
     const adminEmail = await resend.emails.send({
       from: `HyperCast Bot <${SENDER_EMAIL}>`,
-      to: 'rrezi25@gmail.com', // Using the email seen in your screenshot as the Admin email
+      to: 'hypercast24@protonmail.com', // Updated to your ProtonMail
       subject: `💰 NEW SALE: €${price} (${plan})`,
       html: `
         <h2>New Order Received</h2>

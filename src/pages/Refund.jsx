@@ -32,7 +32,7 @@ const Refund = () => {
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">Requesting a Refund</h2>
             <p>
-              To request a refund, please contact our support team at <span className="text-blue-400">support@hypercast.com</span> with your Transaction ID and the email address used for purchase.
+              To request a refund, please contact our support team at <span className="text-blue-400">support@hypercast.store</span> with your Transaction ID and the email address used for purchase.
             </p>
           </section>
         </div>
