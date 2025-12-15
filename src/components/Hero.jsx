@@ -3,7 +3,7 @@ import { Play, Monitor, Smartphone, Tv } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-950 pt-20">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-950 pt-20 pb-20">
       {/* Background Effects */}
       <div className="absolute top-0 left-0 w-full h-full">
         <div className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] animate-pulse" />

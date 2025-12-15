@@ -9,7 +9,19 @@ const steps = [
   {
     icon: <Download size={32} />,
     title: 'Download App',
-    description: 'Download an IPTV player on your device. We recommend IPTV Smarters Pro, TiviMate, or XCIPTV.'
+    description: (
+      <>
+        Download an IPTV player on your device. We recommend{' '}
+        <a
+          href="https://player.ps/de"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-400 hover:text-blue-300 underline"
+        >
+          IPTV Smarters Player
+        </a>.
+      </>
+    )
   },
   {
     icon: <Tv size={32} />,
