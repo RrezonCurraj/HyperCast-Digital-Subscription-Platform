@@ -4,31 +4,31 @@ import { Check } from 'lucide-react';
 const plans = [
   {
     duration: '1 Month',
-    price: '0.01', // TEST PRICE
+    price: '9.99',
     features: ['Stable Performance', 'SD, HD, FHD, 4K', '+19K Live TVs', '+90K VODs', 'Sports, News, Shows...', 'Supports all devices', 'EPG & Catch-Up', '7/7 Support'],
     recommended: false
   },
   {
     duration: '3 Months',
-    price: '35',
+    price: '24.99',
     features: ['Stable Performance', 'SD, HD, FHD, 4K', '+19K Live TVs', '+90K VODs', 'Sports, News, Shows...', 'Supports all devices', 'EPG & Catch-Up', '7/7 Support'],
     recommended: false
   },
   {
     duration: '6 Months',
-    price: '60',
+    price: '49.99',
     features: ['Stable Performance', 'SD, HD, FHD, 4K', '+19K Live TVs', '+90K VODs', 'Sports, News, Shows...', 'Supports all devices', 'EPG & Catch-Up', '7/7 Support'],
     recommended: true
   },
   {
     duration: '12 Months',
-    price: '100',
+    price: '69.99',
     features: ['Stable Performance', 'SD, HD, FHD, 4K', '+19K Live TVs', '+90K VODs', 'Sports, News, Shows...', 'Supports all devices', 'EPG & Catch-Up', '7/7 Support'],
     recommended: false
   },
   {
     duration: '24 Months',
-    price: '180',
+    price: '119.99',
     features: ['Stable Performance', 'SD, HD, FHD, 4K', '+19K Live TVs', '+90K VODs', 'Sports, News, Shows...', 'Supports all devices', 'EPG & Catch-Up', '7/7 Support'],
     recommended: false
   }

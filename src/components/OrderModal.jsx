@@ -7,12 +7,6 @@ const OrderModal = ({ plan, isOpen, onClose }) => {
   const [formData, setFormData] = useState({ email: '', phone: '' });
   const [referenceCode, setReferenceCode] = useState('');
   const [orderDetails, setOrderDetails] = useState(null);
-  const [debugLogs, setDebugLogs] = useState([]);
-
-  const addLog = (msg) => {
-    console.log(msg);
-    setDebugLogs(prev => [...prev, `${new Date().toLocaleTimeString()}: ${msg}`]);
-  };
 
   if (!isOpen || !plan) return null;
 
@@ -24,44 +18,34 @@ const OrderModal = ({ plan, isOpen, onClose }) => {
 
   // PayPal: Create Order
   const createOrder = (data, actions) => {
-    addLog("Creating Order...");
     return actions.order.create({
       purchase_units: [
         {
           description: `${plan.duration} IPTV Subscription`,
           amount: {
-            value: "0.01", // Lowest possible test amount
+            value: plan.price,
             currency_code: "EUR"
           },
         },
       ],
-    }).then((orderId) => {
-        addLog(`Order Created. ID: ${orderId}`);
-        return orderId;
-    }).catch(err => {
-        addLog(`Create Error: ${err}`);
-        throw err;
     });
   };
 
   // PayPal: On Approve (Success)
   const onApprove = async (data, actions) => {
-    addLog("User Approved. Capturing funds...");
-    // CRITICAL FIX: Do NOT setStep('processing') here. 
-    // It unmounts the PayPal buttons while capture is pending, causing "Window closed" error.
+    console.log("User Approved. Capturing funds...");
+    // CRITICAL: Do NOT setStep('processing') here. 
+    // It unmounts the PayPal buttons while capture is pending.
     try {
         const order = await actions.order.capture();
-        addLog(`Capture Success! Status: ${order.status}`);
+        console.log(`Capture Success! Status: ${order.status}`);
         handleOrderCompletion(order);
     } catch (error) {
-        addLog(`Capture Failed: ${error.message}`);
         console.error("PayPal Capture Error:", error);
 
         // Smart Error Handling:
-        // 1. "Window closed" or "Connection closed" -> This is a UI glitch. The payment MIGHT have worked or user closed prematurely. 
-        //    For this specific business (manual fulfillment), we prefer to show Success -> Check manually.
         if (error.message.includes("Window closed") || error.message.includes("Connection closed")) {
-             addLog("Safety Net Triggered: Forcing Success for UI Glitch.");
+             console.log("Safety Net Triggered.");
              handleOrderCompletion({ 
                 id: data.orderID || 'ERR-CAPTURED', 
                 payer: { email_address: formData.email },
@@ -69,16 +53,13 @@ const OrderModal = ({ plan, isOpen, onClose }) => {
                 errorDetails: error.message
             });
         } else {
-            // 2. "Unauthorized", "Declined", "Funding Error" -> The payment was rejected by PayPal.
-            //    Do NOT give the product. Show the error to the user.
             alert(`Payment Failed: ${error.message}\n\nPlease try a different card or account.`);
         }
     }
   };
 
   const handleOrderCompletion = (paypalOrder) => {
-    addLog("Finalizing Order...");
-    console.log("PayPal Order Captured:", paypalOrder);
+    console.log("Finalizing Order:", paypalOrder);
     
     // Generate Reference Code
     const code = 'REF-' + Math.random().toString(36).substr(2, 9).toUpperCase();
@@ -99,15 +80,12 @@ const OrderModal = ({ plan, isOpen, onClose }) => {
       const isJson = res.headers.get('content-type')?.includes('application/json');
       const data = isJson ? await res.json() : null;
       if (!res.ok) {
-        addLog(`Email API Error: ${res.status}`);
         console.error('Email API Error:', (data && data.message) || res.status);
       } else {
-        addLog("Email Request Sent.");
         console.log('Email Sent Successfully:', data);
       }
     })
     .catch(err => {
-        addLog(`Email Network Error: ${err}`);
         console.error('Email Network Error:', err)
     });
 
@@ -121,7 +99,6 @@ const OrderModal = ({ plan, isOpen, onClose }) => {
         contact: formData
       });
       setStep('success');
-      addLog("Step changed to Success.");
     }, 1500);
   };
 
@@ -129,7 +106,6 @@ const OrderModal = ({ plan, isOpen, onClose }) => {
     setStep('form');
     setFormData({ email: '', phone: '' });
     setOrderDetails(null);
-    setDebugLogs([]); // Clear logs
     onClose();
   };
 
@@ -137,7 +113,7 @@ const OrderModal = ({ plan, isOpen, onClose }) => {
     <PayPalScriptProvider options={{ 
       "client-id": import.meta.env.VITE_PAYPAL_CLIENT_ID, 
       currency: "EUR",
-      intent: "capture" // Currency must match createOrder
+      intent: "capture"
     }}>
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
         <div className="bg-gray-800 rounded-2xl w-full max-w-md border border-gray-700 shadow-2xl overflow-hidden relative flex flex-col max-h-[90vh]">
@@ -226,7 +202,6 @@ const OrderModal = ({ plan, isOpen, onClose }) => {
                     createOrder={createOrder}
                     onApprove={onApprove}
                     onError={(err) => {
-                      addLog(`PayPal onError: ${err}`);
                       console.error("PayPal Error:", err);
                     }}
                   />
@@ -288,16 +263,6 @@ const OrderModal = ({ plan, isOpen, onClose }) => {
                   Close
                 </button>
               </div>
-            )}
-
-            {/* DEBUG LOGGING AREA - ONLY FOR TROUBLESHOOTING */}
-            {debugLogs.length > 0 && (
-                <div className="mt-4 p-2 bg-black text-green-400 font-mono text-xs overflow-x-auto rounded border border-gray-700 max-h-32">
-                    <div className="font-bold border-b border-gray-700 mb-1">DEBUG LOGS:</div>
-                    {debugLogs.map((log, i) => (
-                        <div key={i}>{log}</div>
-                    ))}
-                </div>
             )}
           </div>
         </div>
