@@ -4,16 +4,29 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 const OrderModal = ({ plan, isOpen, onClose }) => {
   const [step, setStep] = useState('form'); // form, payment, processing, success
-  const [formData, setFormData] = useState({ email: '', phone: '' });
+  const [formData, setFormData] = useState({ email: '', confirmEmail: '' });
   const [referenceCode, setReferenceCode] = useState('');
   const [orderDetails, setOrderDetails] = useState(null);
+  const [error, setError] = useState('');
 
   if (!isOpen || !plan) return null;
 
   // Initial Form Submit -> Go to Payment
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    setError(''); // Clear previous errors
+    
+    if (formData.email !== formData.confirmEmail) {
+      setError("Email addresses do not match!");
+      return;
+    }
     setStep('payment');
+  };
+
+  // Helper to update form data and clear error
+  const updateFormData = (field, value) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+    if (error) setError('');
   };
 
   // PayPal: Create Order
@@ -58,13 +71,12 @@ const OrderModal = ({ plan, isOpen, onClose }) => {
     }
   };
 
+  // ... handleOrderCompletion ... (keeping existing logic)
   const handleOrderCompletion = (paypalOrder) => {
     console.log("Finalizing Order:", paypalOrder);
     
-    // Generate Reference Code
     const code = 'REF-' + Math.random().toString(36).substr(2, 9).toUpperCase();
     
-    // 1. Send Email (Fire and Forget)
     fetch('/api/send-email', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -89,7 +101,6 @@ const OrderModal = ({ plan, isOpen, onClose }) => {
         console.error('Email Network Error:', err)
     });
 
-    // 2. Show Success Screen
     setTimeout(() => {
       setReferenceCode(code);
       setOrderDetails({
@@ -104,8 +115,9 @@ const OrderModal = ({ plan, isOpen, onClose }) => {
 
   const reset = () => {
     setStep('form');
-    setFormData({ email: '', phone: '' });
+    setFormData({ email: '', confirmEmail: '' });
     setOrderDetails(null);
+    setError('');
     onClose();
   };
 
@@ -143,26 +155,34 @@ const OrderModal = ({ plan, isOpen, onClose }) => {
                     <input
                       type="email"
                       required
-                      className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+                      className={`w-full bg-gray-900 border ${error ? 'border-red-500' : 'border-gray-700'} rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors`}
                       placeholder="your@email.com"
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      onChange={(e) => updateFormData('email', e.target.value)}
                     />
-                    <p className="text-xs text-gray-500 mt-1">We will send the playlist code here.</p>
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-1">
-                      Phone Number (Optional)
+                      Confirm Email <span className="text-red-500">*</span>
                     </label>
                     <input
-                      type="tel"
-                      className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
-                      placeholder="+1 234 567 890"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      type="email"
+                      required
+                      className={`w-full bg-gray-900 border ${error ? 'border-red-500' : 'border-gray-700'} rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors`}
+                      placeholder="Re-enter your email"
+                      value={formData.confirmEmail}
+                      onChange={(e) => updateFormData('confirmEmail', e.target.value)}
+                      onPaste={(e) => e.preventDefault()} 
                     />
+                    <p className="text-xs text-gray-500 mt-1">We will send the playlist code here.</p>
                   </div>
+
+                  {error && (
+                    <div className="text-red-500 text-sm font-bold bg-red-500/10 p-3 rounded-lg border border-red-500/20">
+                      {error}
+                    </div>
+                  )}
 
                   <button
                     type="submit"

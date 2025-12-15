@@ -15,11 +15,7 @@ const Footer = () => {
             <p className="text-sm leading-relaxed mb-4">
               Premium IPTV service provider offering thousands of channels and VOD content in 4K/FHD quality.
             </p>
-            <div className="flex gap-4">
-              <a href="#" className="hover:text-blue-500 transition-colors"><Facebook size={20} /></a>
-              <a href="#" className="hover:text-blue-400 transition-colors"><Twitter size={20} /></a>
-              <a href="#" className="hover:text-pink-500 transition-colors"><Instagram size={20} /></a>
-            </div>
+
           </div>
 
           {/* Quick Links */}
@@ -52,7 +48,7 @@ const Footer = () => {
                 <span>support@hypercast.store</span>
               </li>
               <li>
-                <p>Available 24/7 for support via Email and Telegram.</p>
+                <p>Available 24/7 for support via Email.</p>
               </li>
             </ul>
           </div>

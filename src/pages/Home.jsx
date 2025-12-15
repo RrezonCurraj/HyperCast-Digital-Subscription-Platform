@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Hero from '../components/Hero';
+import Testimonials from '../components/Testimonials';
 import Pricing from '../components/Pricing';
 import HowItWorks from '../components/HowItWorks';
 import Support from '../components/Support';
@@ -17,10 +18,12 @@ const Home = () => {
   return (
     <div>
       <Hero />
+    
       <HowItWorks />
       <Pricing onSelectPlan={handleSelectPlan} />
+      <Testimonials />
       <Support />
-      
+  
       <OrderModal 
         isOpen={isOrderOpen} 
         onClose={() => setIsOrderOpen(false)} 
