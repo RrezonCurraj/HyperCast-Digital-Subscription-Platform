@@ -10,7 +10,7 @@ const plans = [
   },
   {
     duration: '3 Months',
-    price: '24.99',
+    price: '27.99',
     features: ['Stable Performance', 'SD, HD, FHD, 4K', '+19K Live TVs', '+90K VODs', 'Sports, News, Shows...', 'Supports all devices', 'EPG & Catch-Up', '7/7 Support'],
     recommended: false
   },

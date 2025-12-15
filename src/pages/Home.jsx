@@ -19,10 +19,19 @@ const Home = () => {
     <div>
       <Hero />
     
-      <HowItWorks />
-      <Pricing onSelectPlan={handleSelectPlan} />
+      <section id="how-it-works">
+        <HowItWorks />
+      </section>
+
+      <section id="pricing">
+         <Pricing onSelectPlan={handleSelectPlan} />
+      </section>
+
       <Testimonials />
-      <Support />
+      
+      <section id="support">
+         <Support />
+      </section>
   
       <OrderModal 
         isOpen={isOrderOpen} 
