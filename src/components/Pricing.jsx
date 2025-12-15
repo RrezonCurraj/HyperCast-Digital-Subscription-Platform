@@ -1,9 +1,10 @@
+
 import { Check } from 'lucide-react';
 
 const plans = [
   {
     duration: '1 Month',
-    price: '15',
+    price: '0.01', // TEST PRICE
     features: ['Stable Performance', 'SD, HD, FHD, 4K', '+19K Live TVs', '+90K VODs', 'Sports, News, Shows...', 'Supports all devices', 'EPG & Catch-Up', '7/7 Support'],
     recommended: false
   },
