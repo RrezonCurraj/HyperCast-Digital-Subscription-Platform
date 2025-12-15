@@ -18,13 +18,13 @@ const plans = [
     duration: '6 Months',
     price: '49.99',
     features: ['Stable Performance', 'SD, HD, FHD, 4K', '+19K Live TVs', '+90K VODs', 'Sports, News, Shows...', 'Supports all devices', 'EPG & Catch-Up', '7/7 Support'],
-    recommended: true
+    recommended: false
   },
   {
     duration: '12 Months',
     price: '69.99',
     features: ['Stable Performance', 'SD, HD, FHD, 4K', '+19K Live TVs', '+90K VODs', 'Sports, News, Shows...', 'Supports all devices', 'EPG & Catch-Up', '7/7 Support'],
-    recommended: false
+    recommended: true
   },
   {
     duration: '24 Months',
