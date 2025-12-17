@@ -7,7 +7,6 @@ export default async function handler(req, res) {
 
   const { name, email, message, captchaToken } = req.body;
 
-  // 0. Verify reCAPTCHA
   if (!captchaToken) {
     return res.status(400).json({ message: 'CAPTCHA token is missing' });
   }
@@ -25,7 +24,6 @@ export default async function handler(req, res) {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const SENDER_EMAIL = 'support@hypercast.store';
 
-    // 1. Send Alert to Admin
     const adminEmail = await resend.emails.send({
       from: `Contact Form <${SENDER_EMAIL}>`,
       to: 'hypercast24@protonmail.com',

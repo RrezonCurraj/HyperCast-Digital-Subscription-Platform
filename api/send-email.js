@@ -1,23 +1,16 @@
 import { Resend } from 'resend';
 
 export default async function handler(req, res) {
-  // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' });
   }
 
   const { email, plan, price, referenceCode, transactionId } = req.body;
   
-  // Initialize Resend with your API Key
   const resend = new Resend(process.env.RESEND_API_KEY);
-
-
   const SENDER_EMAIL = 'support@hypercast.store'; 
 
-
-
   try {
-    // 1. Email to Customer
     const customerEmail = await resend.emails.send({
       from: `HyperCast Support <${SENDER_EMAIL}>`,
       to: email, 
@@ -45,11 +38,9 @@ export default async function handler(req, res) {
       `
     });
 
-    // 2. Alert Email to YOU (The Admin)
-    // Replace 'your-personal-email@gmail.com' with where you want to receive alerts
     const adminEmail = await resend.emails.send({
       from: `HyperCast Bot <${SENDER_EMAIL}>`,
-      to: 'hypercast24@protonmail.com', // Updated to your ProtonMail
+      to: 'hypercast24@protonmail.com', // Admin Email
       subject: `💰 NEW SALE: €${price} (${plan})`,
       html: `
         <h2>New Order Received</h2>
