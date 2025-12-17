@@ -13,19 +13,6 @@ A modern, full-stack e-commerce application designed for managing and selling di
 👉 **[View Live Demo](https://hypercast-woad.vercel.app/)**
 *(This is the live deployment of the project)*
 
-## 📸 Screenshots
-
-### Desktop View
-![Home Page](screenshots/desktop1.png)
-*The modern landing page with responsive hero section.*
-
-![Pricing Plans](screenshots/desktop2.png)
-*Dynamic pricing tables with monthly/yearly toggles.*
-
-### Mobile View
-![Mobile Home](screenshots/mobile1.png)
-*Fully responsive mobile design.*
-
 ## 🚀 Features
 
 ### Core Functionality
