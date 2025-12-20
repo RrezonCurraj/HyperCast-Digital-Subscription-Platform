@@ -1,0 +1,5 @@
+<svg width="150" height="24" viewBox="0 0 150 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M17 2L12 7L7 2" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="2" y="7" width="20" height="15" rx="2" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="30" y="20" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="#111827">Hyper<tspan fill="#3b82f6">Cast</tspan></text>
+</svg>

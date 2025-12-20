@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 
@@ -12,6 +13,7 @@ import Refund from './pages/Refund';
 
 const App = () => {
   return (
+    <>
     <Router>
       <div className="min-h-screen bg-gray-900">
         <Navbar />
@@ -27,6 +29,8 @@ const App = () => {
         <Footer />
       </div>
     </Router>
+    <Analytics />
+    </>
   );
 };
 
