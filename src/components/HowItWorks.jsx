@@ -11,14 +11,14 @@ const steps = [
     title: 'Download App',
     description: (
       <>
-        Download an IPTV player on your device. We recommend{' '}
+        Download a compatible player on your device. We recommend{' '}
         <a
           href="https://player.ps/de"
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-400 hover:text-blue-300 underline"
         >
-          IPTV Smarters Player
+          Smarters Player
         </a>.
       </>
     )

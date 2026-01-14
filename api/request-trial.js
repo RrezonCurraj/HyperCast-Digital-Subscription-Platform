@@ -30,7 +30,7 @@ export default async function handler(req, res) {
           <p><strong>What's next?</strong></p>
           <p>Our team verifies every request manually to prevent spam. You will receive your login details (Username, Password, and URL) in a separate email within <strong>1-12 hours</strong>.</p>
           
-          <p>While you wait, make sure you have an IPTV player installed on your device!</p>
+          <p>While you wait, make sure you have a compatible player installed on your device!</p>
           
           <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
           <p style="font-size: 12px; color: #888; text-align: center;">&copy; ${new Date().getFullYear()} HyperCast. All rights reserved.</p>

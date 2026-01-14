@@ -12,7 +12,7 @@ const Terms = () => {
 
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">2. Service Description</h2>
-            <p>We provide IPTV subscription services allowing you to access live TV channels and VOD content. The quality of the stream depends on your internet connection speed.</p>
+            <p>We provide digital streaming subscription services allowing you to access live TV channels and VOD content. The quality of the stream depends on your internet connection speed.</p>
           </section>
 
           <section>
