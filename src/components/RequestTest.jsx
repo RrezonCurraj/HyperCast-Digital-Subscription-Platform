@@ -5,7 +5,8 @@ const RequestTest = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    device: 'Smart TV'
+    device: 'Smart TV',
+    app: ''
   });
   const [status, setStatus] = useState('idle'); // idle, submitting, success
 
@@ -151,6 +152,17 @@ const RequestTest = () => {
                     </button>
                   ))}
                 </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-400 mb-2">Preferred App</label>
+                <input 
+                  type="text" 
+                  placeholder="e.g. IPTV Smarters, TiviMate..."
+                  className="w-full bg-gray-950/50 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                  value={formData.app}
+                  onChange={(e) => setFormData({...formData, app: e.target.value})}
+                />
               </div>
 
               <button 
