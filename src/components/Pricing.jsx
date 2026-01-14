@@ -5,31 +5,31 @@ const plans = [
   {
     duration: '1 Month',
     price: '9.99',
-    features: ['Stable Performance', 'SD, HD, FHD, 4K', '+19K Live TVs', '+90K VODs', 'Sports, News, Shows...', 'Supports all devices', 'EPG & Catch-Up', '7/7 Support'],
+    features: ['Stable Performance', 'SD, HD, FHD, 4K', '+20K Live TVs', '+80K VODs', 'Sports, News, Shows...', 'Supports all devices', 'EPG & Catch-Up', '7/7 Support'],
     recommended: false
   },
   {
     duration: '3 Months',
     price: '27.99',
-    features: ['Stable Performance', 'SD, HD, FHD, 4K', '+19K Live TVs', '+90K VODs', 'Sports, News, Shows...', 'Supports all devices', 'EPG & Catch-Up', '7/7 Support'],
+    features: ['Stable Performance', 'SD, HD, FHD, 4K', '+20K Live TVs', '+80K VODs', 'Sports, News, Shows...', 'Supports all devices', 'EPG & Catch-Up', '7/7 Support'],
     recommended: false
   },
   {
     duration: '6 Months',
     price: '49.99',
-    features: ['Stable Performance', 'SD, HD, FHD, 4K', '+19K Live TVs', '+90K VODs', 'Sports, News, Shows...', 'Supports all devices', 'EPG & Catch-Up', '7/7 Support'],
+    features: ['Stable Performance', 'SD, HD, FHD, 4K', '+20K Live TVs', '+80K VODs', 'Sports, News, Shows...', 'Supports all devices', 'EPG & Catch-Up', '7/7 Support'],
     recommended: false
   },
   {
     duration: '12 Months',
     price: '69.99',
-    features: ['Stable Performance', 'SD, HD, FHD, 4K', '+19K Live TVs', '+90K VODs', 'Sports, News, Shows...', 'Supports all devices', 'EPG & Catch-Up', '7/7 Support'],
+    features: ['Stable Performance', 'SD, HD, FHD, 4K', '+20K Live TVs', '+80K VODs', 'Sports, News, Shows...', 'Supports all devices', 'EPG & Catch-Up', '7/7 Support'],
     recommended: true
   },
   {
     duration: '24 Months',
     price: '119.99',
-    features: ['Stable Performance', 'SD, HD, FHD, 4K', '+19K Live TVs', '+90K VODs', 'Sports, News, Shows...', 'Supports all devices', 'EPG & Catch-Up', '7/7 Support'],
+    features: ['Stable Performance', 'SD, HD, FHD, 4K', '+20K Live TVs', '+80K VODs', 'Sports, News, Shows...', 'Supports all devices', 'EPG & Catch-Up', '7/7 Support'],
     recommended: false
   }
 ];

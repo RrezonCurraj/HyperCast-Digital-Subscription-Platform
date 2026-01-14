@@ -13,7 +13,7 @@ const Footer = () => {
               <span>Hyper<span className="text-blue-500">Cast</span></span>
             </Link>
             <p className="text-sm leading-relaxed mb-4">
-              Premium IPTV service provider offering thousands of channels and VOD content in 4K/FHD quality.
+              Premium IPTV service provider offering 20,000+ channels and 80,000+ VOD content in 4K/FHD quality.
             </p>
 
           </div>

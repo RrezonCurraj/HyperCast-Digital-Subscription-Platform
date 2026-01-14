@@ -82,7 +82,7 @@ const RequestTest = () => {
             <div className="flex justify-center">
               <ul className="text-left space-y-4 mb-8 inline-block">
                 {[
-                  "Access to 15,000+ Live Channels",
+                  "Access to 20,000+ Live Channels",
                   "Library of 80,000+ Movies & Series",
                   "4K / UHD Quality on Supported Channels",
                   "No Credit Card Required"
