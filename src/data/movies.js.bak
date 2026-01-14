@@ -1,0 +1,59 @@
+
+export const latestMovies = [
+  {
+    id: 1,
+    title: "Dune: Part Two",
+    image: "https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
+    year: "2024",
+    rating: "8.5"
+  },
+  {
+    id: 2,
+    title: "Civil War",
+    image: "https://image.tmdb.org/t/p/w500/sh7Rg8Er3tFcN9BpKIPOMvALgZd.jpg",
+    year: "2024",
+    rating: "7.6"
+  },
+  {
+    id: 3,
+    title: "Godzilla x Kong",
+    image: "https://image.tmdb.org/t/p/w500/tM26baW1bLHK87x8by1M1Zz4c2r.jpg",
+    year: "2024",
+    rating: "7.2"
+  },
+  {
+    id: 4,
+    title: "Kung Fu Panda 4",
+    image: "https://image.tmdb.org/t/p/w500/kDp1vUBnMpe8ak4rjgl3cLELqjU.jpg",
+    year: "2024",
+    rating: "7.8"
+  },
+  {
+    id: 5,
+    title: "Ghostbusters: Frozen Empire",
+    image: "https://image.tmdb.org/t/p/w500/stmYfCUGd8Iy6kAMBr6AmWqx8Bq.jpg",
+    year: "2024",
+    rating: "6.9"
+  },
+  {
+    id: 6,
+    title: "The Ministry of Ungentlemanly Warfare",
+    image: "https://image.tmdb.org/t/p/w500/8aF0iAKH9pvCVQIjFkE5sFfunjh.jpg",
+    year: "2024",
+    rating: "7.5"
+  },
+  {
+    id: 7,
+    title: "Furiosa: A Mad Max Saga",
+    image: "https://image.tmdb.org/t/p/w500/iADOJ8Zymht2JPMoy3R7xceZprc.jpg",
+    year: "2024",
+    rating: "8.0"
+  },
+  {
+    id: 8,
+    title: "Kingdom of the Planet of the Apes",
+    image: "https://image.tmdb.org/t/p/w500/gKkl37BQuKTanygYQG1pyYgLVgf.jpg",
+    year: "2024",
+    rating: "7.7"
+  }
+];
