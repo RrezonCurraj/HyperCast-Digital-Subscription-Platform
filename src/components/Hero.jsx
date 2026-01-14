@@ -23,7 +23,7 @@ const Hero = () => {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
           </span>
           <span className="text-blue-300 text-sm font-medium tracking-wide">
-            {import.meta.env.VITE_HERO_BADGE || "#1 Rated SaaS Platform"}
+            #1 Rated Streaming Platform
           </span>
         </div>
 
@@ -37,7 +37,7 @@ const Hero = () => {
 
         {/* Subheading */}
         <p className="text-xl md:text-2xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-           {import.meta.env.VITE_HERO_DESC || "Experience the future of digital content delivery. Scalable, secure, and built for performance."}
+           Experience the future of digital content delivery. Scalable, secure, and built for performance.
         </p>
 
         {/* CTA Buttons */}
