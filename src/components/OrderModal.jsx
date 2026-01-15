@@ -125,9 +125,24 @@ const OrderModal = ({ plan, isOpen, onClose }) => {
     onClose();
   };
 
+  const clientId = import.meta.env.VITE_PAYPAL_CLIENT_ID;
+
+  if (!clientId) {
+    console.error("CRITICAL: PayPal Client ID is missing! Check your .env file or Vercel Environment Variables.");
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div className="bg-gray-800 rounded-2xl p-8 max-w-md text-center border border-red-500/50">
+           <h3 className="text-xl font-bold text-white mb-2">Payment System Error</h3>
+           <p className="text-gray-400 mb-4">The payment system is currently unavailable (Missing Configuration).</p>
+           <button onClick={onClose} className="bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-lg">Close</button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <PayPalScriptProvider options={{ 
-      "client-id": import.meta.env.VITE_PAYPAL_CLIENT_ID, 
+      "client-id": clientId, 
       currency: "EUR",
       intent: "capture"
     }}>
