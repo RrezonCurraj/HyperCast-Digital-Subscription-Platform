@@ -126,6 +126,11 @@ const OrderModal = ({ plan, isOpen, onClose }) => {
   };
 
   const clientId = import.meta.env.VITE_PAYPAL_CLIENT_ID;
+  
+  // DEBUG LOGGING
+  console.log("OrderModal Version: HOTFIX-CHECK-1.0");
+  console.log("PayPal Client ID Status:", clientId ? "Present" : "MISSING");
+  if (clientId) console.log("PayPal Client ID (First 5 chars):", clientId.substring(0, 5) + "...");
 
   if (!clientId) {
     console.error("CRITICAL: PayPal Client ID is missing! Check your .env file or Vercel Environment Variables.");
@@ -134,7 +139,8 @@ const OrderModal = ({ plan, isOpen, onClose }) => {
         <div className="bg-gray-800 rounded-2xl p-8 max-w-md text-center border border-red-500/50">
            <h3 className="text-xl font-bold text-white mb-2">Payment System Error</h3>
            <p className="text-gray-400 mb-4">The payment system is currently unavailable (Missing Configuration).</p>
-           <button onClick={onClose} className="bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-lg">Close</button>
+           <p className="text-xs text-red-400">Error: VITE_PAYPAL_CLIENT_ID not found.</p>
+           <button onClick={onClose} className="bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-lg mt-4">Close</button>
         </div>
       </div>
     );
