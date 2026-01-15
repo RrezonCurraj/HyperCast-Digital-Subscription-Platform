@@ -241,16 +241,21 @@ const OrderModal = ({ plan, isOpen, onClose }) => {
                 </div>
 
                 <div className="text-center">
+                  {/* DEBUG: Disabling PayPal Button to Check for Crash */}
+                  <div className="p-4 border border-yellow-500 rounded text-yellow-500 mb-4">
+                     Debug Mode: Validating Payment Provider...
+                  </div>
+                  {/* 
                   <PayPalButtons 
                     style={{ layout: "vertical", color: "blue", shape: "rect", label: "pay" }}
                     createOrder={createOrder}
                     onApprove={onApprove}
                     onError={(err) => {
                       console.error("PayPal Error:", err);
-                      // Handle error (optional UI update)
                        alert("Payment Error: " + err.message);
                     }}
                   />
+                  */}
                   <p className="text-xs text-gray-500 mt-4">
                     Secure payment processed by PayPal. 
                     <br/>We do not store your financial details.
