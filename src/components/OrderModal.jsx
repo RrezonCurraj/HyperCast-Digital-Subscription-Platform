@@ -242,13 +242,13 @@ const OrderModal = ({ plan, isOpen, onClose }) => {
 
                 <div className="text-center">
                   <PayPalButtons 
-                    forceReRender={[plan.price, plan.duration, referenceCode]}
                     style={{ layout: "vertical", color: "blue", shape: "rect", label: "pay" }}
-                    fundingSource="paypal"
                     createOrder={createOrder}
                     onApprove={onApprove}
                     onError={(err) => {
                       console.error("PayPal Error:", err);
+                      // Handle error (optional UI update)
+                       alert("Payment Error: " + err.message);
                     }}
                   />
                   <p className="text-xs text-gray-500 mt-4">
