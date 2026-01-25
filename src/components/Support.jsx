@@ -107,12 +107,19 @@ const Support = () => {
 
                    {/* reCAPTCHA */}
                    <div className="flex justify-center py-2">
-                    <ReCAPTCHA
-                        ref={recaptchaRef}
-                        sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-                        onChange={(token) => setCaptchaToken(token)}
-                        theme="dark"
-                    />
+                    {import.meta.env.VITE_RECAPTCHA_SITE_KEY ? (
+                      <ReCAPTCHA
+                          ref={recaptchaRef}
+                          sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                          onChange={(token) => setCaptchaToken(token)}
+                          theme="dark"
+                      />
+                    ) : (
+                      <div className="text-center p-4 bg-gray-800/50 rounded-lg border border-gray-700">
+                        <p className="text-yellow-500 font-medium mb-1">Portfolio Demo Mode</p>
+                        <p className="text-sm text-gray-400">Contact form is disabled for this preview.</p>
+                      </div>
+                    )}
                   </div>
 
                   {status === 'error' && (
