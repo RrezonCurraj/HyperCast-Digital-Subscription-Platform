@@ -1,5 +1,20 @@
-import { famousChannels } from '../data/channels';
 import { useEffect, useRef, useState } from 'react';
+import { Tv, Film, Video, Cast, Monitor, Radio, Disc, Music } from 'lucide-react';
+
+const ActivityIcon = ({size, className}) => (
+    <svg viewBox="0 0 24 24" width={size} height={size} stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+);
+
+const genericChannels = [
+  { id: 1, name: "Prime Channel", category: "Entertainment", icon: Tv },
+  { id: 2, name: "Movie Central", category: "Movies", icon: Film },
+  { id: 3, name: "Sports Arena", category: "Sports", icon: ActivityIcon },
+  { id: 4, name: "News 24/7", category: "News", icon: Radio },
+  { id: 5, name: "Kids Zone", category: "Kids", icon: Cast },
+  { id: 6, name: "DocuWorld", category: "Documentary", icon: Monitor },
+  { id: 7, name: "Music Hits", category: "Music", icon: Music },
+  { id: 8, name: "Classic TV", category: "Classics", icon: Disc },
+];
 
 const HeadLine = () => {
   const ref = useRef(null);
@@ -27,7 +42,7 @@ const HeadLine = () => {
       ref={ref} 
       className={`text-3xl md:text-4xl font-bold text-white mb-4 inline-block relative ${isVisible ? 'in-view' : ''}`}
     >
-    TV Channels
+    Featured Partners
       <svg 
         className="absolute -bottom-2 left-0 w-full h-3 text-blue-600" 
         viewBox="0 0 100 10" 
@@ -78,15 +93,15 @@ const FamousChannels = () => {
         {/* Sliding Track */}
         <div className="flex animate-scroll-reverse hover:pause gap-8 w-max px-4">
           {/* Original Set */}
-          {famousChannels.map((channel, index) => (
+          {genericChannels.map((channel, index) => (
             <ChannelCard key={`original-${channel.id}-${index}`} channel={channel} />
           ))}
           {/* Duplicate Set */}
-          {famousChannels.map((channel, index) => (
+          {genericChannels.map((channel, index) => (
             <ChannelCard key={`dup-${channel.id}-${index}`} channel={channel} />
           ))}
           {/* Triplicate Set */}
-          {famousChannels.map((channel, index) => (
+          {genericChannels.map((channel, index) => (
             <ChannelCard key={`tri-${channel.id}-${index}`} channel={channel} />
           ))}
         </div>
@@ -102,7 +117,7 @@ const FamousChannels = () => {
           animation: scroll-reverse 40s linear infinite;
         }
         .hover\\:pause:hover {
-          animation-play-state: paused;
+            animation-play-state: paused;
         }
       `}</style>
     </div>
@@ -112,11 +127,7 @@ const FamousChannels = () => {
 const ChannelCard = ({ channel }) => (
   <div className="w-40 sm:w-56 flex-shrink-0 group cursor-default">
     <div className="relative overflow-hidden rounded-xl shadow-lg border border-gray-800 bg-gray-800/50 p-6 mb-3 transition-transform duration-300 group-hover:-translate-y-2 flex items-center justify-center h-32 sm:h-40">
-      <img
-        src={channel.logo}
-        alt={channel.name}
-        className="w-full h-full object-contain transition-all duration-300 transform group-hover:scale-110"
-      />
+      <channel.icon size={64} className="text-gray-600 group-hover:text-blue-400 transition-colors duration-300" />
     </div>
     
     <div className="px-1 text-center">
@@ -127,3 +138,4 @@ const ChannelCard = ({ channel }) => (
 );
 
 export default FamousChannels;
+

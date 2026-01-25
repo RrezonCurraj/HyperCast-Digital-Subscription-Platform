@@ -2,7 +2,6 @@ import { useState } from 'react';
 import Hero from '../components/Hero';
 import LatestMovies from '../components/LatestMovies';
 import FamousChannels from '../components/FamousChannels';
-import RequestTest from '../components/RequestTest';
 import Testimonials from '../components/Testimonials';
 import Pricing from '../components/Pricing';
 import HowItWorks from '../components/HowItWorks';
@@ -23,7 +22,6 @@ const Home = () => {
       <Hero />
       <LatestMovies />
       <FamousChannels />
-      <RequestTest />
     
       <section id="how-it-works">
         <HowItWorks />

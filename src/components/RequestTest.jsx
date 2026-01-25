@@ -83,9 +83,9 @@ const RequestTest = () => {
             <div className="flex justify-center">
               <ul className="text-left space-y-4 mb-8 inline-block">
                 {[
-                  "Access to 20,000+ Live Channels",
-                  "Library of 80,000+ Movies & Series",
-                  "4K / UHD Quality on Supported Channels",
+                  "Unlimited Streaming Access",
+                  "Library of 10,000+ Movies",
+                  "4K / UHD Quality Support",
                   "No Credit Card Required"
                 ].map((item, index) => (
                   <li key={index} className="flex items-center gap-3 text-gray-300">
@@ -158,7 +158,7 @@ const RequestTest = () => {
                 <label className="block text-sm font-medium text-gray-400 mb-2">Preferred App</label>
                 <input 
                   type="text" 
-                  placeholder="e.g. IPTV Smarters, TiviMate..."
+                  placeholder="e.g. Smart TV App, Web Browser..."
                   className="w-full bg-gray-950/50 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
                   value={formData.app}
                   onChange={(e) => setFormData({...formData, app: e.target.value})}

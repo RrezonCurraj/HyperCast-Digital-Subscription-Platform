@@ -13,7 +13,7 @@ const Footer = () => {
               <span>Hyper<span className="text-blue-500">Cast</span></span>
             </Link>
             <p className="text-sm leading-relaxed mb-4">
-              Premium IPTV service provider offering 20,000+ channels and 80,000+ VOD content in 4K/FHD quality.
+              A modern streaming platform UI demo showcasing React and Tailwind CSS capabilities.
             </p>
 
           </div>
@@ -45,7 +45,7 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2">
                 <Mail size={16} className="text-blue-500" />
-                <span>support@hypercast.store</span>
+                <span>contact@portfolio.demo</span>
               </li>
               <li>
                 <p>Available 24/7 for support via Email.</p>

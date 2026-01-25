@@ -3,35 +3,28 @@ import { Mail, Download, Tv, PlayCircle } from 'lucide-react';
 const steps = [
   {
     icon: <Mail size={32} />,
-    title: 'Check Your Email',
-    description: 'Within 24 hours of purchase, you will receive an email containing your unique playlist credentials (M3U URL, Username, Password).'
+    title: 'Create Account',
+    description: 'Sign up for a free trial or premium subscription using your email address. Instant verification.'
   },
   {
     icon: <Download size={32} />,
-    title: 'Download App',
+    title: 'Get the App',
     description: (
       <>
-        Download an IPTV player on your device. We recommend{' '}
-        <a
-          href="https://player.ps/de"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-400 hover:text-blue-300 underline"
-        >
-          IPTV Smarters Player
-        </a>.
+        Download our top-rated streaming app on your favorite device. Available on{' '}
+        <span className="text-blue-400">iOS, Android, and Smart TVs</span>.
       </>
     )
   },
   {
     icon: <Tv size={32} />,
-    title: 'Connect',
-    description: 'Open the app and enter the login details provided in your email to connect to our server.'
+    title: 'Login',
+    description: 'Sign in with your credentials to access your personalized dashboard and watchlist.'
   },
   {
     icon: <PlayCircle size={32} />,
     title: 'Start Watching',
-    description: 'Browse thousands of channels and VOD content instantly. Enjoy buffer-free streaming!'
+    description: 'Stream unlimited movies, shows, and exclusives in 4K HDR quality with zero ads.'
   }
 ];
 
