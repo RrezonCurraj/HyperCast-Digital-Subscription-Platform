@@ -10,7 +10,7 @@ A modern, full-stack e-commerce application designed for managing and selling di
 
 ## 🔗 Live Demo
 
-👉 **[View Live Demo](https://hypercast-woad.vercel.app/)**
+👉 **[View Live Demo](https://hypercastt.vercel.app/)**
 *(This is the live deployment of the project)*
 
 ## 🚀 Features
