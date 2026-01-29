@@ -10,8 +10,13 @@ import Privacy from './pages/Privacy';
 import Footer from './components/Footer';
 
 import Refund from './pages/Refund';
+import Maintenance from './pages/Maintenance';
 
 const App = () => {
+  if (import.meta.env.VITE_MAINTENANCE_MODE === 'true') {
+    return <Maintenance />;
+  }
+
   return (
     <>
     <Router>
